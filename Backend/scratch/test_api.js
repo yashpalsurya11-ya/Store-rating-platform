@@ -31,10 +31,10 @@ async function runTests() {
     return { status: res.status, data };
   }
 
-  // TEST 1: Register Normal User with short name validation failure (Min 20 chars)
+  // TEST 1: Register Normal User with short name validation failure (Min 2 chars)
   console.log('\n[Test 1] Register user with short name (should fail)...');
   const t1 = await apiCall('/auth/register', 'POST', {
-    name: 'Short Name', // 10 chars
+    name: 'X', // 1 char (violates min 2 chars rule)
     email: `short.${uniqueSuffix}@test.com`,
     address: '123 Test Lane Road',
     password: 'Password@123'
