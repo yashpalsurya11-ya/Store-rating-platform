@@ -22,18 +22,21 @@ const Modal = ({ isOpen, onClose, title, children }) => {
         onClick={(e) => e.stopPropagation()}
         style={{
           backgroundColor: 'var(--bg-secondary)',
-          border: '1px solid rgba(255, 255, 255, 0.15)'
+          border: '1px solid var(--border-card)'
         }}
       >
-        <button className="modal-close" onClick={onClose}>
+        <button className="modal-close" onClick={onClose} aria-label="Close modal">
           &times;
         </button>
         {title && (
           <h2 style={{ 
             marginBottom: '1.5rem', 
-            fontSize: '1.35rem', 
+            fontSize: '1.4rem', 
+            fontWeight: '800',
+            letterSpacing: '-0.02em',
             borderBottom: '1px solid var(--border-card)',
-            paddingBottom: '0.75rem' 
+            paddingBottom: '1rem',
+            color: 'var(--text-inverse)'
           }}>
             {title}
           </h2>

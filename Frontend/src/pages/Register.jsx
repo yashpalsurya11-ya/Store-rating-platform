@@ -32,7 +32,7 @@ const Register = () => {
   const validate = () => {
     const newErrors = {};
 
-    // Name Validation: Min 20, Max 60
+    // Name Validation: Min 2, Max 60
     if (!formData.name) {
       newErrors.name = 'Name is required.';
     } else if (formData.name.length < 2 || formData.name.length > 60) {
@@ -112,24 +112,58 @@ const Register = () => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      minHeight: 'calc(100vh - 70px)',
-      padding: '2rem'
+      minHeight: '100vh',
+      padding: '3rem 2rem',
+      backgroundColor: 'var(--bg-primary)',
+      backgroundImage: 
+        'radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%), radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%)',
+      position: 'relative',
+      overflow: 'hidden'
     }}>
+      {/* Decorative Orbs */}
+      <div className="glow-orb" style={{ top: '-15%', left: '-15%', width: '400px', height: '400px' }} />
+      <div className="glow-orb" style={{ bottom: '-15%', right: '-15%', width: '400px', height: '400px' }} />
+
       <div className="glass-card animate-fade-in" style={{
         width: '100%',
-        maxWidth: '500px',
-        padding: '2.5rem',
+        maxWidth: '520px',
+        padding: '3.5rem 3rem',
         backgroundColor: 'var(--bg-secondary)',
-        display: 'flex',
-        flexDirection: 'column'
+        border: '1px solid var(--border-card)',
+        zIndex: 1
       }}>
-        <h2 style={{ fontSize: '1.8rem', textAlign: 'center', marginBottom: '0.25rem' }}>Create Account</h2>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem', textAlign: 'center' }}>
-          Sign up as a normal user to submit ratings
-        </p>
+        {/* Logo Header */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '2rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="url(#logoGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="url(#logoGrad)" />
+            </svg>
+            <span style={{ 
+              fontSize: '1.5rem', 
+              fontWeight: '800', 
+              letterSpacing: '-0.03em', 
+              background: 'var(--accent-gradient)', 
+              WebkitBackgroundClip: 'text', 
+              WebkitTextFillColor: 'transparent' 
+            }}>
+              StorePulse
+            </span>
+          </div>
+          <h2 style={{ fontSize: '1.65rem', fontWeight: '800', marginBottom: '0.25rem', color: 'var(--text-inverse)', letterSpacing: '-0.02em', textAlign: 'center' }}>
+            Create Account
+          </h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: '500', textAlign: 'center' }}>
+            Sign up as a normal user to search and review stores
+          </p>
+        </div>
 
         {apiError && (
-          <div className="alert alert-danger" style={{ fontSize: '0.875rem', padding: '0.75rem' }}>
+          <div className="alert alert-danger" style={{ marginBottom: '1.75rem' }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
             {apiError}
           </div>
         )}
@@ -170,7 +204,7 @@ const Register = () => {
           />
 
           <InputField
-            label="Password (8-16 chars, 1 uppercase, 1 special)"
+            label="Password"
             name="password"
             type="password"
             value={formData.password}
@@ -195,15 +229,17 @@ const Register = () => {
             type="submit"
             className="btn btn-primary"
             disabled={loading}
-            style={{ width: '100%', marginTop: '1.5rem', padding: '0.85rem' }}
+            style={{ width: '100%', marginTop: '1.25rem', padding: '0.9rem', fontSize: '0.95rem' }}
           >
             {loading ? 'Creating Account...' : 'Register'}
           </button>
         </form>
 
-        <div style={{ marginTop: '1.5rem', textAlign: 'center', fontSize: '0.875rem' }}>
+        <div style={{ marginTop: '2rem', textAlign: 'center', fontSize: '0.9rem', fontWeight: '500' }}>
           <span style={{ color: 'var(--text-muted)' }}>Already have an account? </span>
-          <Link to="/login" style={{ fontWeight: '600' }}>Sign In</Link>
+          <Link to="/login" style={{ fontWeight: '700', color: 'var(--accent-primary)' }}>
+            Sign In
+          </Link>
         </div>
       </div>
     </div>

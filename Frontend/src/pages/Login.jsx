@@ -77,49 +77,68 @@ const Login = () => {
     <div className="split-container">
       {/* Left side: Brand Showcase */}
       <div className="split-left">
-        <div>
-          <h2 style={{ color: '#ffffff', fontSize: '1.75rem', fontWeight: '800', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-            ⚡ StorePulse
+        {/* Glow Effects */}
+        <div className="glow-orb" style={{ top: '-10%', left: '-10%' }} />
+        <div className="glow-orb" style={{ bottom: '-15%', right: '-15%' }} />
+
+        <div style={{ zIndex: 1 }}>
+          <h2 style={{ color: '#ffffff', fontSize: '1.8rem', fontWeight: '800', display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.35rem' }}>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="#818cf8" />
+            </svg>
+            StorePulse
           </h2>
-          <span style={{ fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.75)', textTransform: 'uppercase', fontWeight: 'bold', letterSpacing: '0.05em' }}>
+          <span style={{ fontSize: '0.75rem', color: 'rgba(255, 255, 255, 0.6)', textTransform: 'uppercase', fontWeight: '800', letterSpacing: '0.1em' }}>
             Merchants & Ratings Console
           </span>
         </div>
 
-        <div style={{ margin: '4rem 0' }}>
-          <h1 style={{ color: '#ffffff', background: 'none', WebkitTextFillColor: 'unset', fontSize: '2.5rem', fontWeight: '800', lineHeight: '1.2', marginBottom: '1.5rem' }}>
+        <div style={{ margin: '4rem 0', zIndex: 1 }}>
+          <h1 style={{ color: '#ffffff', background: 'none', WebkitTextFillColor: 'unset', fontSize: '2.85rem', fontWeight: '800', lineHeight: '1.15', marginBottom: '2.5rem', letterSpacing: '-0.03em' }}>
             Analyze and rate your local merchants seamlessly.
           </h1>
           
           {/* Features list */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             <div className="feature-item">
-              <span className="feature-icon">✓</span>
+              <span className="feature-icon">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
               <div>
-                <strong style={{ color: '#ffffff', display: 'block', fontSize: '0.95rem' }}>System-Wide Statistics</strong>
-                <span style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '0.875rem' }}>Track platform users, registered merchants, and submitted reviews in real time.</span>
+                <strong style={{ color: '#ffffff', display: 'block', fontSize: '1rem', fontWeight: '700' }}>System-Wide Statistics</strong>
+                <span style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.875rem', fontWeight: '500', display: 'block', marginTop: '0.2rem' }}>Track platform users, registered merchants, and submitted reviews in real time.</span>
               </div>
             </div>
             <div className="feature-item">
-              <span className="feature-icon">✓</span>
+              <span className="feature-icon">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
               <div>
-                <strong style={{ color: '#ffffff', display: 'block', fontSize: '0.95rem' }}>Store Analytics Dashboard</strong>
-                <span style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '0.875rem' }}>Calculates average scores, displays ratings breakdowns, and review histories.</span>
+                <strong style={{ color: '#ffffff', display: 'block', fontSize: '1rem', fontWeight: '700' }}>Store Analytics Dashboard</strong>
+                <span style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.875rem', fontWeight: '500', display: 'block', marginTop: '0.2rem' }}>Calculates average scores, displays ratings breakdowns, and review histories.</span>
               </div>
             </div>
             <div className="feature-item">
-              <span className="feature-icon">✓</span>
+              <span className="feature-icon">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
               <div>
-                <strong style={{ color: '#ffffff', display: 'block', fontSize: '0.95rem' }}>Granular Role Guards</strong>
-                <span style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '0.875rem' }}>Guarantees secure navigation and custom access settings for all system users.</span>
+                <strong style={{ color: '#ffffff', display: 'block', fontSize: '1rem', fontWeight: '700' }}>Granular Role Guards</strong>
+                <span style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.875rem', fontWeight: '500', display: 'block', marginTop: '0.2rem' }}>Guarantees secure navigation and custom access settings for all system users.</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div>
-          <p style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.6)' }}>
-            © 2026 StorePulse. All rights reserved.
+        <div style={{ zIndex: 1 }}>
+          <p style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.4)', fontWeight: '600' }}>
+            &copy; 2026 StorePulse. All rights reserved.
           </p>
         </div>
       </div>
@@ -128,21 +147,25 @@ const Login = () => {
       <div className="split-right">
         <div className="glass-card animate-fade-in" style={{
           width: '100%',
-          maxWidth: '420px',
-          padding: '3rem 2.5rem',
+          maxWidth: '430px',
+          padding: '3.5rem 3rem',
           backgroundColor: 'var(--bg-secondary)',
-          border: '1px solid var(--border-card)',
-          boxShadow: '0 10px 40px rgba(0,0,0,0.04)'
+          border: '1px solid var(--border-card)'
         }}>
-          <h2 style={{ fontSize: '1.75rem', fontWeight: '800', marginBottom: '0.25rem', color: 'var(--text-inverse)' }}>
-            Sign In
+          <h2 style={{ fontSize: '1.85rem', fontWeight: '800', marginBottom: '0.35rem', color: 'var(--text-inverse)', letterSpacing: '-0.02em' }}>
+            Welcome Back
           </h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '2rem' }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', marginBottom: '2.5rem', fontWeight: '500' }}>
             Enter your credentials to access your dashboard
           </p>
 
           {apiError && (
-            <div className="alert alert-danger" style={{ fontSize: '0.85rem', padding: '0.75rem', marginBottom: '1.5rem' }}>
+            <div className="alert alert-danger" style={{ marginBottom: '1.75rem' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
               {apiError}
             </div>
           )}
@@ -174,16 +197,16 @@ const Login = () => {
               type="submit"
               className="btn btn-primary"
               disabled={loading}
-              style={{ width: '100%', marginTop: '1.5rem', padding: '0.85rem', fontSize: '0.95rem' }}
+              style={{ width: '100%', marginTop: '1.25rem', padding: '0.9rem', fontSize: '0.95rem' }}
             >
               {loading ? 'Signing In...' : 'Sign In'}
             </button>
           </form>
 
-          <div style={{ marginTop: '2rem', textAlign: 'center', fontSize: '0.875rem' }}>
+          <div style={{ marginTop: '2.5rem', textAlign: 'center', fontSize: '0.9rem', fontWeight: '500' }}>
             <span style={{ color: 'var(--text-muted)' }}>New to StorePulse? </span>
             <Link to="/register" style={{ fontWeight: '700', color: 'var(--accent-primary)' }}>
-              Create a free account
+              Create an account
             </Link>
           </div>
         </div>

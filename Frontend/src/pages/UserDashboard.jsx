@@ -140,17 +140,17 @@ const UserDashboard = () => {
     const char = name.charCodeAt(0) || 65;
     const hue = (char * 7) % 360;
     return {
-      width: '50px',
-      height: '50px',
-      borderRadius: '50%',
-      backgroundColor: `hsla(${hue}, 80%, 45%, 0.1)`,
-      color: `hsl(${hue}, 80%, 40%)`,
+      width: '54px',
+      height: '54px',
+      borderRadius: '14px',
+      backgroundColor: `hsla(${hue}, 85%, 45%, 0.08)`,
+      color: `hsl(${hue}, 85%, 35%)`,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      fontSize: '1.25rem',
-      fontWeight: 'bold',
-      border: `2px solid hsla(${hue}, 80%, 45%, 0.2)`
+      fontSize: '1.45rem',
+      fontWeight: '800',
+      border: `1px solid hsla(${hue}, 85%, 45%, 0.15)`
     };
   };
 
@@ -158,19 +158,19 @@ const UserDashboard = () => {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-primary)' }}>
       <Navbar />
 
-      <main style={{ flex: 1, padding: '2rem max(2rem, 4vw)', display: 'grid', gridTemplateColumns: '1fr 340px', gap: '2rem' }}>
+      <main style={{ flex: 1, padding: '2.5rem max(2rem, 4vw)', display: 'grid', gridTemplateColumns: '1fr 350px', gap: '2.5rem' }}>
         
         {/* Main Store Cards Directory */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
             <div>
-              <h1 style={{ fontSize: '1.8rem' }}>Store Directory</h1>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem' }}>Search and review your favorite stores registered on the platform</p>
+              <h1 style={{ fontSize: '2rem', marginBottom: '0.25rem' }}>Store Directory</h1>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', fontWeight: '500' }}>Search and review your favorite stores registered on the platform</p>
             </div>
             
             {/* Sorting controls */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Sort by:</span>
+              <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Sort by:</span>
               <select
                 value={`${sortBy}-${sortOrder}`}
                 onChange={(e) => {
@@ -178,8 +178,8 @@ const UserDashboard = () => {
                   setSortBy(field);
                   setSortOrder(order);
                 }}
-                className="form-control"
-                style={{ width: '160px', padding: '0.5rem', fontSize: '0.85rem' }}
+                className="form-control form-select-custom"
+                style={{ width: '180px', padding: '0.65rem 1rem', fontSize: '0.875rem' }}
               >
                 <option value="name-ASC">Name (A-Z)</option>
                 <option value="name-DESC">Name (Z-A)</option>
@@ -193,55 +193,61 @@ const UserDashboard = () => {
 
           {/* Directory Grid */}
           {stores.length > 0 ? (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.75rem' }}>
               {stores.map((store) => (
                 <div key={store.id} className="glass-card animate-fade-in" style={{
-                  padding: '1.5rem',
+                  padding: '1.75rem',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '1.25rem',
+                  gap: '1.5rem',
                   backgroundColor: 'var(--bg-secondary)',
                   justifyContent: 'space-between'
                 }}>
                   {/* Store Header */}
-                  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', gap: '1.15rem', alignItems: 'center' }}>
                     <div style={getAvatarStyle(store.name)}>
                       {store.name.charAt(0).toUpperCase()}
                     </div>
                     <div style={{ overflow: 'hidden' }}>
                       <h3 style={{
-                        fontSize: '1.1rem',
-                        fontWeight: '600',
+                        fontSize: '1.15rem',
+                        fontWeight: '800',
                         color: 'var(--text-inverse)',
                         whiteSpace: 'nowrap',
                         overflow: 'hidden',
-                        textOverflow: 'ellipsis'
+                        textOverflow: 'ellipsis',
+                        letterSpacing: '-0.02em',
+                        marginBottom: '0.15rem'
                       }}>
                         {store.name}
                       </h3>
-                      <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{store.email}</span>
+                      <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '500' }}>{store.email}</span>
                     </div>
                   </div>
 
                   {/* Store Info */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.875rem' }}>
-                    <p style={{ color: 'var(--text-muted)', display: 'flex', gap: '0.35rem' }}>
-                      <span>📍</span> 
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem' }}>
+                    <p style={{ color: 'var(--text-main)', display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" strokeWidth="2.5" style={{ flexShrink: 0, marginTop: '0.15rem' }}>
+                        <path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                      </svg>
                       <span style={{
                         overflow: 'hidden',
                         textOverflow: 'ellipsis',
                         display: '-webkit-box',
                         WebkitLineClamp: 2,
                         WebkitBoxOrient: 'vertical',
-                        height: '2.5rem'
+                        lineHeight: '1.4',
+                        height: '2.8rem'
                       }}>{store.address}</span>
                     </p>
                     
                     {/* Overall Average Rating */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.25rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginTop: '0.25rem' }}>
                       <StarRating rating={store.averageRating} size={15} />
-                      <strong style={{ color: 'var(--text-inverse)' }}>
-                        {store.averageRating > 0 ? `${store.averageRating} / 5.0` : 'No reviews'}
+                      <strong style={{ color: 'var(--text-inverse)', fontSize: '0.9rem' }}>
+                        {store.averageRating > 0 ? `${store.averageRating.toFixed(1)} / 5.0` : 'No reviews'}
                       </strong>
                     </div>
                   </div>
@@ -249,27 +255,27 @@ const UserDashboard = () => {
                   {/* Rating Actions Area */}
                   <div style={{
                     borderTop: '1px solid var(--border-card)',
-                    paddingTop: '1rem',
+                    paddingTop: '1.25rem',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between'
                   }}>
                     {/* User's rating label */}
                     <div>
-                      <span style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)' }}>My Review</span>
+                      <span style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.15rem' }}>My Review</span>
                       {store.userRating ? (
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: 'var(--color-success)', fontWeight: '600', fontSize: '0.9rem' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: 'var(--color-success)', fontWeight: '700', fontSize: '0.9rem' }}>
                           <span>★</span> <span>{store.userRating} / 5</span>
                         </div>
                       ) : (
-                        <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Unrated</span>
+                        <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: '600' }}>Unrated</span>
                       )}
                     </div>
 
                     <button
                       className={store.userRating ? "btn btn-secondary" : "btn btn-primary"}
                       onClick={() => handleOpenRateModal(store)}
-                      style={{ padding: '0.45rem 1rem', fontSize: '0.85rem' }}
+                      style={{ padding: '0.5rem 1.15rem', fontSize: '0.85rem' }}
                     >
                       {store.userRating ? 'Edit Rating' : 'Rate Store'}
                     </button>
@@ -278,19 +284,19 @@ const UserDashboard = () => {
               ))}
             </div>
           ) : (
-            <div className="glass-card" style={{ padding: '4rem', textAlign: 'center', color: 'var(--text-muted)' }}>
+            <div className="glass-card" style={{ padding: '5rem 2rem', textAlign: 'center', color: 'var(--text-muted)', fontWeight: '500' }}>
               No stores found matching your search.
             </div>
           )}
         </div>
 
         {/* Sidebar Filters & Security */}
-        <aside style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+        <aside style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           
           {/* Filters Card */}
-          <div className="glass-card" style={{ padding: '1.5rem', backgroundColor: 'var(--bg-secondary)' }}>
-            <h3 style={{ marginBottom: '1rem', fontSize: '1.1rem' }}>Search & Filter</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          <div className="glass-card" style={{ padding: '1.75rem', backgroundColor: 'var(--bg-secondary)' }}>
+            <h3 style={{ marginBottom: '1.25rem', fontSize: '1.15rem', fontWeight: '800', letterSpacing: '-0.02em' }}>Search & Filter</h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <input
                 placeholder="🔍 Search Store Name..."
                 value={searchName}
@@ -307,16 +313,23 @@ const UserDashboard = () => {
           </div>
 
           {/* Security Card */}
-          <div className="glass-card" style={{ padding: '1.5rem', backgroundColor: 'var(--bg-secondary)' }}>
-            <h3 style={{ marginBottom: '1.25rem', fontSize: '1.1rem' }}>Change Password</h3>
+          <div className="glass-card" style={{ padding: '1.75rem', backgroundColor: 'var(--bg-secondary)' }}>
+            <h3 style={{ marginBottom: '1.25rem', fontSize: '1.15rem', fontWeight: '800', letterSpacing: '-0.02em' }}>Change Password</h3>
             
             {passwordSuccess && (
-              <div className="alert alert-success" style={{ padding: '0.5rem 0.75rem', fontSize: '0.8rem' }}>
+              <div className="alert alert-success" style={{ padding: '0.5rem 0.75rem', fontSize: '0.8rem', marginBottom: '1rem' }}>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
                 {passwordSuccess}
               </div>
             )}
             {passwordApiError && (
-              <div className="alert alert-danger" style={{ padding: '0.5rem 0.75rem', fontSize: '0.8rem' }}>
+              <div className="alert alert-danger" style={{ padding: '0.5rem 0.75rem', fontSize: '0.8rem', marginBottom: '1rem' }}>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
                 {passwordApiError}
               </div>
             )}
@@ -352,7 +365,7 @@ const UserDashboard = () => {
               <button
                 type="submit"
                 className="btn btn-secondary"
-                style={{ width: '100%', marginTop: '0.5rem' }}
+                style={{ width: '100%', marginTop: '0.5rem', padding: '0.75rem' }}
                 disabled={passwordLoading}
               >
                 {passwordLoading ? 'Updating...' : 'Change Password'}
@@ -374,8 +387,8 @@ const UserDashboard = () => {
         )}
         
         {selectedStore && (
-          <form onSubmit={handleSubmitRating} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
-            <p style={{ color: 'var(--text-muted)', textAlign: 'center', fontSize: '0.9rem' }}>
+          <form onSubmit={handleSubmitRating} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.75rem' }}>
+            <p style={{ color: 'var(--text-muted)', textAlign: 'center', fontSize: '0.925rem', fontWeight: '500', lineHeight: '1.4' }}>
               How would you rate your experience with this store? Select a rating from 1 to 5 stars.
             </p>
             
@@ -383,7 +396,7 @@ const UserDashboard = () => {
               rating={selectedRating}
               interactive={true}
               onRatingChange={(val) => { setSelectedRating(val); setRateError(''); }}
-              size={36}
+              size={42}
             />
             
             <div style={{ display: 'flex', gap: '1rem', width: '100%', marginTop: '0.5rem' }}>
