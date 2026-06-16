@@ -3,7 +3,7 @@
 > **Status: Deployed & Production Ready 🟢**
 >
 > The StorePulse application has been successfully deployed and is fully live.
-> *   **Production Frontend (Vercel):** [https://store-rating-platform-two.vercel.app](https://store-rating-platform-two.vercel.app)
+> *   **Production Frontend (Vercel):** [https://store-rating-platform-beta.vercel.app](https://store-rating-platform-beta.vercel.app)
 > *   **Production Backend (Render):** [https://store-rating-platform-backend.onrender.com/api](https://store-rating-platform-backend.onrender.com/api)
 
 StorePulse is a full-stack web application designed for listing, searching, and rating merchant stores. The platform includes a secure role-based access control system (System Administrator, Normal User, and Store Owner), strict registration and password validations, multi-column sortable datatables, and a cloud-synced database.
