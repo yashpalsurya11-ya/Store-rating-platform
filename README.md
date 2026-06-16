@@ -4,6 +4,13 @@ StorePulse is a full-stack web application designed for listing, searching, and 
 
 ---
 
+## 🌐 Live Deployments
+
+*   **Live Frontend URL (Vercel):** [https://store-rating-platform-two.vercel.app](https://store-rating-platform-two.vercel.app)
+*   **Live Backend API URL (Render):** [https://store-rating-platform-backend.onrender.com/api](https://store-rating-platform-backend.onrender.com/api) *(Please update this with your actual Render deployment URL if different)*
+
+---
+
 ## 🚀 Tech Stack
 
 *   **Frontend:** ReactJS, Vite, React Router, Context API, Custom Vanilla CSS (Premium light theme with HSL variables & glassmorphism details).
